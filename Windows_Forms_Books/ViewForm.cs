@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Windows_Forms_Books
 {
-    public partial class Form1 : Form
+    public partial class ViewForm : Form
     {
-        public Form1()
+        public ViewForm()
         {
             InitializeComponent();
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
