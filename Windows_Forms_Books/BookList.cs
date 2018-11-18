@@ -12,9 +12,9 @@ namespace Windows_Forms_Books
         private List<Book> bookList;
 
         public delegate void BookEventHandler(object sender, EventArgs args);
-        public event BookEventHandler RaiseAddEvent;
-        public event BookEventHandler RaiseDeleteEvent;
-        public event BookEventHandler RaiseEditEvent;
+        public event BookEventHandler BookAdded;
+        public event BookEventHandler BookRemoved;
+        public event BookEventHandler BookEdited;
 
         public IEnumerator<Book> GetEnumerator()
         {
@@ -24,6 +24,50 @@ namespace Windows_Forms_Books
         IEnumerator IEnumerable.GetEnumerator()
         {
             return bookList.GetEnumerator();
+        }
+
+        //TODO: make generic function for all events
+        protected virtual void OnBookAdded(Book b)
+        {
+            BookEventHandler handler = BookAdded;
+            if (handler != null)
+            {
+                handler(this, new BookEventArgs(b));
+            }
+        }
+
+        protected virtual void OnBookRemoved(Book b)
+        {
+            BookEventHandler handler = BookRemoved;
+            if (handler != null)
+            {
+                handler(this, new BookEventArgs(b));
+            }
+        }
+
+        protected virtual void OnBookEdited(Book b)
+        {
+            BookEventHandler handler = BookEdited;
+            if (handler != null)
+            {
+                handler(this, new BookEventArgs(b));
+            }
+        }
+    }
+
+    public class BookEventArgs : EventArgs
+    {
+        private Book book;
+        public BookEventArgs(Book book)
+        {
+            this.book = book;
+        }
+        public Book Book
+        {
+            get
+            {
+                return this.book;
+            }
         }
     }
 }
