@@ -16,6 +16,11 @@ namespace Windows_Forms_Books
         public event BookEventHandler BookRemoved;
         public event BookEventHandler BookEdited;
 
+        public BookList()
+        {
+            bookList = new List<Book>();
+        }
+
         public IEnumerator<Book> GetEnumerator()
         {
             return bookList.GetEnumerator();
@@ -24,6 +29,27 @@ namespace Windows_Forms_Books
         IEnumerator IEnumerable.GetEnumerator()
         {
             return bookList.GetEnumerator();
+        }
+
+        public Book this[int i]
+        {
+            get
+            {
+                return bookList[i];
+            }
+        }
+
+        public void Add(String title, String author, DateTime date, String category)
+        {
+            Book book = new Book(title, author, date, category);
+            bookList.Add(book);
+            OnBookAdded(book);
+        }
+
+        public void Remove(Book book)
+        {
+            bookList.Remove(book);
+            OnBookRemoved(book);
         }
 
         //TODO: make generic function for all events
