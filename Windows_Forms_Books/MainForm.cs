@@ -51,9 +51,30 @@ namespace Windows_Forms_Books
                 views.Remove((ViewForm)sender);
         }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        public void AddBook()
         {
-
+            BookDetails form = new BookDetails();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                books.Add(form.titleTextBox.Text, form.authorTextBox.Text, form.dateTimePicker.Value, form.categoryTextBox.Text);
+            }
         }
+
+        public void EditBook(Book book)
+        {
+            BookDetails form = new BookDetails();
+            form.SetBookDetails(book.Title, book.Author, book.Date, book.Category);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                book.SetProperties(form.titleTextBox.Text, form.authorTextBox.Text, form.dateTimePicker.Value, form.categoryTextBox.Text);
+                books.Edit(book);
+            }
+        }
+
+        public void RemoveBook(Book book)
+        {
+            books.Remove(book);
+        }
+
     }
 }

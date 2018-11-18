@@ -16,5 +16,23 @@ namespace Windows_Forms_Books
         {
             InitializeComponent();
         }
+        public void SetBookDetails(String title, String author, DateTime date, String category)
+        {
+            this.titleTextBox.Text = title;
+            this.authorTextBox.Text = author;
+            this.dateTimePicker.Value = date;
+            this.categoryTextBox.Text = category;
+        }
+
+        private void OKButton_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren())
+                this.DialogResult = DialogResult.OK;
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
     }
 }

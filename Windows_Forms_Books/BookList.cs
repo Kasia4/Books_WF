@@ -53,6 +53,11 @@ namespace Windows_Forms_Books
             OnBookRemoved(book);
         }
 
+        public void Edit(Book book)
+        {
+            OnBookEdited(book);
+        }
+
         //TODO: make generic method for all events
         protected virtual void OnBookAdded(Book b)
         {

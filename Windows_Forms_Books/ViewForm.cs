@@ -49,6 +49,7 @@ namespace Windows_Forms_Books
             bookViewItem.SubItems[2].Text = book.Category;
             bookViewItem.SubItems[3].Text = book.Date.ToShortDateString();
             listViewForm.Items.Add(bookViewItem);
+            this.CountLabel.Text = this.listViewForm.Items.Count.ToString();
         }
 
         private void HandleBookAddedEvent(object sender, BookEventArgs args)
@@ -63,6 +64,7 @@ namespace Windows_Forms_Books
             if (bookViewItem != null)
             {
                 listViewForm.Items.Remove(bookViewItem);
+                this.CountLabel.Text = this.listViewForm.Items.Count.ToString();
             }
         }
 
@@ -98,5 +100,28 @@ namespace Windows_Forms_Books
             ToolStripManager.RevertMerge(((MainForm)this.MdiParent).statusStrip1, this.statusStrip1);
         }
 
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainForm mdiContainer = (MainForm)this.MdiParent;
+            mdiContainer.AddBook();
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.listViewForm.SelectedItems.Count == 1)
+            {
+                MainForm mdiContainer = (MainForm)this.MdiParent;
+                mdiContainer.RemoveBook((Book)this.listViewForm.SelectedItems[0].Tag);
+            }
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.listViewForm.SelectedItems.Count == 1)
+            {
+                MainForm mdiContainer = (MainForm)this.MdiParent;
+                mdiContainer.EditBook((Book)this.listViewForm.SelectedItems[0].Tag);
+            }
+        }
     }
 }

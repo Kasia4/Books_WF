@@ -50,14 +50,14 @@
             this.Author,
             this.Category,
             this.Date});
-            this.listViewForm.Dock = System.Windows.Forms.DockStyle.Top;
+            this.listViewForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewForm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.listViewForm.Location = new System.Drawing.Point(0, 0);
-            this.listViewForm.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.listViewForm.Location = new System.Drawing.Point(0, 28);
+            this.listViewForm.Margin = new System.Windows.Forms.Padding(4);
             this.listViewForm.Name = "listViewForm";
             this.listViewForm.ShowItemToolTips = true;
-            this.listViewForm.Size = new System.Drawing.Size(509, 283);
-            this.listViewForm.TabIndex = 0;
+            this.listViewForm.Size = new System.Drawing.Size(511, 303);
+            this.listViewForm.TabIndex = 1;
             this.listViewForm.UseCompatibleStateImageBehavior = false;
             this.listViewForm.View = System.Windows.Forms.View.Details;
             this.listViewForm.Enter += new System.EventHandler(this.listViewForm_Enter);
@@ -91,9 +91,9 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CountLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 258);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 331);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(509, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(511, 25);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -101,18 +101,21 @@
             // 
             this.CountLabel.Name = "CountLabel";
             this.CountLabel.Size = new System.Drawing.Size(151, 20);
-            this.CountLabel.Text = "toolStripStatusLabel1";
+            this.CountLabel.Text = "0";
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
             this.removeToolStripMenuItem,
             this.editToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 283);
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(509, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(511, 28);
+            this.menuStrip1.Stretch = false;
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -121,27 +124,30 @@
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // ViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 283);
+            this.ClientSize = new System.Drawing.Size(511, 356);
+            this.Controls.Add(this.listViewForm);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.listViewForm);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ViewForm";
             this.Text = "Books";

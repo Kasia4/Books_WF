@@ -15,11 +15,15 @@ namespace Windows_Forms_Books
 
         public Book(String title, String author, DateTime date, String category)
         {
+            SetProperties(title, author, date, category);
+        }
+
+        public void SetProperties(String title, String author, DateTime date, String category)
+        {
             this.title = title;
             this.author = author;
             this.date = date;
             this.category = category;
-
         }
 
         public String Title
