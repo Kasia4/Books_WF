@@ -14,9 +14,10 @@ namespace Windows_Forms_Books
         [STAThread]
         static void Main()
         {
+            BookList model = new BookList();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MDIForm());
+            Application.Run(new MainForm(model));
         }
     }
 }

@@ -13,19 +13,15 @@ namespace Windows_Forms_Books
     public partial class ViewForm : Form
     {
         private BookList books;
-        public ViewForm()
-        {
-            InitializeComponent();
-            //add handlers to events from model
-        }
 
         public ViewForm(BookList books)
         {
-            InitializeComponent();
+            
             this.books = books;
             this.books.BookAdded += HandleBookAddedEvent;
             this.books.BookRemoved += HandleBookRemovedEvent;
             this.books.BookEdited += HandleBookEditedEvent;
+            InitializeComponent();
         }
 
         private ListViewItem FindBookViewItem(Book book)
@@ -40,16 +36,19 @@ namespace Windows_Forms_Books
 
         private void AddBookViewItem(Book book)
         {
-            ListViewItem item = new ListViewItem
+            ListViewItem bookViewItem = new ListViewItem
             {
                 Tag = book
             };
 
-            item.SubItems[0].Text = book.Title;
-            item.SubItems[1].Text = book.Author;
-            item.SubItems[2].Text = book.Date.ToShortDateString();
-            item.SubItems[3].Text = book.Category;
-            listViewForm.Items.Add(item);
+            while (bookViewItem.SubItems.Count < 4)
+                bookViewItem.SubItems.Add(new ListViewItem.ListViewSubItem());
+
+            bookViewItem.SubItems[0].Text = book.Title;
+            bookViewItem.SubItems[1].Text = book.Author;
+            bookViewItem.SubItems[2].Text = book.Category;
+            bookViewItem.SubItems[3].Text = book.Date.ToShortDateString();
+            listViewForm.Items.Add(bookViewItem);
         }
 
         private void HandleBookAddedEvent(object sender, BookEventArgs args)
@@ -76,9 +75,18 @@ namespace Windows_Forms_Books
                 Book book = (Book)bookViewItem.Tag;
                 bookViewItem.SubItems[0].Text = book.Title;
                 bookViewItem.SubItems[1].Text = book.Author;
-                bookViewItem.SubItems[2].Text = book.Date.ToShortDateString();
-                bookViewItem.SubItems[3].Text = book.Category;
+                bookViewItem.SubItems[2].Text = book.Category;
+                bookViewItem.SubItems[3].Text = book.Date.ToShortDateString();
             }
         }
+
+        private void ViewForm_Load(object sender, EventArgs e)
+        {
+            foreach(Book book in books)
+            {
+                AddBookViewItem(book);
+            }
+        }
+
     }
 }

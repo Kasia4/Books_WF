@@ -19,6 +19,7 @@ namespace Windows_Forms_Books
         public BookList()
         {
             bookList = new List<Book>();
+            Add("1984", "George Orwell", new DateTime(1949, 6, 8), "fantasy");
         }
 
         public IEnumerator<Book> GetEnumerator()
@@ -55,7 +56,12 @@ namespace Windows_Forms_Books
         //TODO: make generic method for all events
         protected virtual void OnBookAdded(Book b)
         {
-            BookAdded?.Invoke(this, new BookEventArgs(b));
+            BookEventHandler handler = BookAdded;
+            if (handler != null)
+            {
+                handler(this, new BookEventArgs(b));
+            }
+            //BookAdded?.Invoke(this, new BookEventArgs(b));
         }
 
         protected virtual void OnBookRemoved(Book b)

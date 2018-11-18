@@ -43,9 +43,11 @@
             this.Category,
             this.Date});
             this.listViewForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewForm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.listViewForm.Location = new System.Drawing.Point(0, 0);
             this.listViewForm.Name = "listViewForm";
-            this.listViewForm.Size = new System.Drawing.Size(358, 283);
+            this.listViewForm.ShowItemToolTips = true;
+            this.listViewForm.Size = new System.Drawing.Size(509, 283);
             this.listViewForm.TabIndex = 0;
             this.listViewForm.UseCompatibleStateImageBehavior = false;
             this.listViewForm.View = System.Windows.Forms.View.Details;
@@ -53,11 +55,13 @@
             // Title
             // 
             this.Title.Text = "Title";
+            this.Title.Width = 80;
             // 
             // Author
             // 
             this.Author.Text = "Author";
             this.Author.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Author.Width = 120;
             // 
             // Category
             // 
@@ -69,16 +73,17 @@
             // 
             this.Date.Text = "Date";
             this.Date.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Date.Width = 50;
+            this.Date.Width = 70;
             // 
             // ViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 283);
+            this.ClientSize = new System.Drawing.Size(509, 283);
             this.Controls.Add(this.listViewForm);
             this.Name = "ViewForm";
             this.Text = "Books";
+            this.Load += new System.EventHandler(this.ViewForm_Load);
             this.ResumeLayout(false);
 
         }

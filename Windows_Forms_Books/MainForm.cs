@@ -10,13 +10,15 @@ using System.Windows.Forms;
 
 namespace Windows_Forms_Books
 {
-    public partial class MDIForm : Form
+    public partial class MainForm : Form
     {
         private List<ViewForm> views;
+        private BookList books;
 
-        public MDIForm()
+        public MainForm(BookList books)
         {
             views = new List<ViewForm>();
+            this.books = books;
             InitializeComponent();
         }
 
@@ -32,7 +34,7 @@ namespace Windows_Forms_Books
 
         private void CreateView()
         {
-            ViewForm view = new ViewForm
+            ViewForm view = new ViewForm(books)
             {
                 MdiParent = this
             };

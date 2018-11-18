@@ -1,6 +1,6 @@
 ﻿namespace Windows_Forms_Books
 {
-    partial class MDIForm
+    partial class MainForm
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
