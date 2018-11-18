@@ -56,12 +56,7 @@ namespace Windows_Forms_Books
         //TODO: make generic method for all events
         protected virtual void OnBookAdded(Book b)
         {
-            BookEventHandler handler = BookAdded;
-            if (handler != null)
-            {
-                handler(this, new BookEventArgs(b));
-            }
-            //BookAdded?.Invoke(this, new BookEventArgs(b));
+            BookAdded?.Invoke(this, new BookEventArgs(b));
         }
 
         protected virtual void OnBookRemoved(Book b)

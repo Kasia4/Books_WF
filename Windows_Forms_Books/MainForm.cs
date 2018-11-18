@@ -50,5 +50,10 @@ namespace Windows_Forms_Books
             else
                 views.Remove((ViewForm)sender);
         }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

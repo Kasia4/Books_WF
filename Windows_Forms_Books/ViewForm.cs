@@ -88,5 +88,15 @@ namespace Windows_Forms_Books
             }
         }
 
+        private void listViewForm_Enter(object sender, EventArgs e)
+        {
+            ToolStripManager.Merge(this.statusStrip1, ((MainForm)this.MdiParent).statusStrip1);
+        }
+
+        private void listViewForm_Leave(object sender, EventArgs e)
+        {
+            ToolStripManager.RevertMerge(((MainForm)this.MdiParent).statusStrip1, this.statusStrip1);
+        }
+
     }
 }
