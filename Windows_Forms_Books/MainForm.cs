@@ -22,18 +22,20 @@ namespace Windows_Forms_Books
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            createView();
+            CreateView();
         }
 
         private void MDIForm_Load(object sender, EventArgs e)
         {
-            createView();
+            CreateView();
         }
 
-        private void createView()
+        private void CreateView()
         {
-            ViewForm view = new ViewForm();
-            view.MdiParent = this;
+            ViewForm view = new ViewForm
+            {
+                MdiParent = this
+            };
             view.FormClosing += ViewFormClosing;
             views.Add(view);
             view.Show();

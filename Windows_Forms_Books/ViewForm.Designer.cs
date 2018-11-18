@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewForm = new System.Windows.Forms.ListView();
             this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // listView1
+            // listViewForm
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewForm.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Title,
             this.Author,
             this.Category,
             this.Date});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(358, 283);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listViewForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewForm.Location = new System.Drawing.Point(0, 0);
+            this.listViewForm.Name = "listViewForm";
+            this.listViewForm.Size = new System.Drawing.Size(358, 283);
+            this.listViewForm.TabIndex = 0;
+            this.listViewForm.UseCompatibleStateImageBehavior = false;
+            this.listViewForm.View = System.Windows.Forms.View.Details;
             // 
             // Title
             // 
@@ -76,7 +76,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 283);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listViewForm);
             this.Name = "ViewForm";
             this.Text = "Books";
             this.ResumeLayout(false);
@@ -85,7 +85,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewForm;
         private System.Windows.Forms.ColumnHeader Title;
         private System.Windows.Forms.ColumnHeader Author;
         private System.Windows.Forms.ColumnHeader Category;

@@ -11,7 +11,7 @@ namespace Windows_Forms_Books
     {
         private List<Book> bookList;
 
-        public delegate void BookEventHandler(object sender, EventArgs args);
+        public delegate void BookEventHandler(object sender, BookEventArgs args);
         public event BookEventHandler BookAdded;
         public event BookEventHandler BookRemoved;
         public event BookEventHandler BookEdited;
@@ -52,32 +52,20 @@ namespace Windows_Forms_Books
             OnBookRemoved(book);
         }
 
-        //TODO: make generic function for all events
+        //TODO: make generic method for all events
         protected virtual void OnBookAdded(Book b)
         {
-            BookEventHandler handler = BookAdded;
-            if (handler != null)
-            {
-                handler(this, new BookEventArgs(b));
-            }
+            BookAdded?.Invoke(this, new BookEventArgs(b));
         }
 
         protected virtual void OnBookRemoved(Book b)
         {
-            BookEventHandler handler = BookRemoved;
-            if (handler != null)
-            {
-                handler(this, new BookEventArgs(b));
-            }
+            BookRemoved?.Invoke(this, new BookEventArgs(b));
         }
 
         protected virtual void OnBookEdited(Book b)
         {
-            BookEventHandler handler = BookEdited;
-            if (handler != null)
-            {
-                handler(this, new BookEventArgs(b));
-            }
+            BookEdited?.Invoke(this, new BookEventArgs(b));
         }
     }
 
