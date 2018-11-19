@@ -14,14 +14,49 @@ namespace Windows_Forms_Books
     {
         private BookList books;
 
+        private delegate bool Filter(Book book);
+        private Filter _filter;
+        private Filter filter
+        {
+            get
+            {
+                return this._filter;
+            }
+            set
+            {
+                this._filter = value;
+                this.listViewForm.Items.Clear();
+                foreach (Book book in books)
+                {
+                    if (filter(book))
+                    {
+                        AddBookViewItem(book);
+                    }
+                }
+                this.CountLabel.Text = this.listViewForm.Items.Count.ToString();
+            }
+        }
+        private bool EmptyFilter(Book book)
+        {
+            return true;
+        }
+        private bool IsBefore2000(Book book)
+        {
+            return (book.Date.Year < 2000);
+        }
+        private bool IsAfter2000(Book book)
+        {
+            return (book.Date.Year >= 2000);
+        }
+
         public ViewForm(BookList books)
         {
-            
+            InitializeComponent();
             this.books = books;
             this.books.BookAdded += HandleBookAddedEvent;
             this.books.BookRemoved += HandleBookRemovedEvent;
             this.books.BookEdited += HandleBookEditedEvent;
-            InitializeComponent();
+            this.filter = EmptyFilter;
         }
 
         private ListViewItem FindBookViewItem(Book book)
@@ -55,7 +90,8 @@ namespace Windows_Forms_Books
         private void HandleBookAddedEvent(object sender, BookEventArgs args)
         {
             Book book = args.Book;
-            AddBookViewItem(book);           
+            if(filter(book))
+                AddBookViewItem(book);           
         }
 
         private void HandleBookRemovedEvent(object sender, BookEventArgs args)
@@ -71,23 +107,35 @@ namespace Windows_Forms_Books
         // TODO: extract common code from HandleBookEditedEvent and AddBookViewItem methods
         private void HandleBookEditedEvent(object sender, BookEventArgs args)
         {
+            Book book = args.Book;
             ListViewItem bookViewItem = FindBookViewItem(args.Book);
             if (bookViewItem != null)
             {
-                Book book = (Book)bookViewItem.Tag;
-                bookViewItem.SubItems[0].Text = book.Title;
-                bookViewItem.SubItems[1].Text = book.Author;
-                bookViewItem.SubItems[2].Text = book.Category;
-                bookViewItem.SubItems[3].Text = book.Date.ToShortDateString();
+                if (filter(book))
+                {
+                    bookViewItem.SubItems[0].Text = book.Title;
+                    bookViewItem.SubItems[1].Text = book.Author;
+                    bookViewItem.SubItems[2].Text = book.Category;
+                    bookViewItem.SubItems[3].Text = book.Date.ToShortDateString();
+                }
+                else
+                {
+                    listViewForm.Items.Remove(bookViewItem);
+                    this.CountLabel.Text = this.listViewForm.Items.Count.ToString();
+                }
+            }
+            else if (filter(book))
+            {
+                AddBookViewItem(book);
             }
         }
 
         private void ViewForm_Load(object sender, EventArgs e)
         {
-            foreach(Book book in books)
-            {
-                AddBookViewItem(book);
-            }
+           // foreach(Book book in books)
+           // {
+            //    AddBookViewItem(book);
+            //}
         }
 
         private void listViewForm_Enter(object sender, EventArgs e)
@@ -122,6 +170,21 @@ namespace Windows_Forms_Books
                 MainForm mdiContainer = (MainForm)this.MdiParent;
                 mdiContainer.EditBook((Book)this.listViewForm.SelectedItems[0].Tag);
             }
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            filter = IsBefore2000;
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            filter = IsAfter2000;
+        }
+
+        private void emptyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            filter = EmptyFilter;
         }
     }
 }

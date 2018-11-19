@@ -34,5 +34,63 @@ namespace Windows_Forms_Books
         {
             this.DialogResult = DialogResult.Cancel;
         }
+
+        private void titleTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            validateTextBox(titleTextBox, e);
+        }
+
+        private void categoryTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            validateTextBox(categoryTextBox, e);
+        }
+
+        private void dateTimePicker_Validating(object sender, CancelEventArgs e)
+        {
+            if (this.dateTimePicker.Value > DateTime.Now)
+            {
+                e.Cancel = true;
+                errorHandler.SetError(dateTimePicker, "Date can't be in the future");
+            }
+        }
+
+        private void authorTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            validateTextBox(authorTextBox, e);
+        }
+
+        private void validateTextBox(TextBox textBox, CancelEventArgs e)
+        {
+            if (textBox.Text.Length == 0)
+            {
+                e.Cancel = true;
+                errorHandler.SetError(textBox, "This field can't be empty");
+            }
+        }
+
+        private void resetError(Control box)
+        {
+                errorHandler.SetError(box, "");
+        }
+
+        private void titleTextBox_Validated(object sender, EventArgs e)
+        {
+            resetError(titleTextBox);
+        }
+
+        private void authorTextBox_Validated(object sender, EventArgs e)
+        {
+            resetError(authorTextBox);
+        }
+
+        private void dateTimePicker_Validated(object sender, EventArgs e)
+        {
+            resetError(dateTimePicker);
+        }
+
+        private void categoryTextBox_Validated(object sender, EventArgs e)
+        {
+            resetError(categoryTextBox);
+        }
     }
 }
