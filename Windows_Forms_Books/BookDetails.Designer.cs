@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookDetails));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.categoryTextBox = new System.Windows.Forms.TextBox();
             this.authorTextBox = new System.Windows.Forms.TextBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.authorLabel = new System.Windows.Forms.Label();
@@ -41,8 +41,10 @@
             this.CancelButton1 = new System.Windows.Forms.Button();
             this.OKButton = new System.Windows.Forms.Button();
             this.errorHandler = new System.Windows.Forms.ErrorProvider(this.components);
+            this.categoryControl = new Windows_Forms_Books.CategoryControl();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorHandler)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryControl)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -50,7 +52,6 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.63743F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.36257F));
-            this.tableLayoutPanel1.Controls.Add(this.categoryTextBox, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.authorTextBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.titleLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.authorLabel, 0, 1);
@@ -58,31 +59,21 @@
             this.tableLayoutPanel1.Controls.Add(this.categoryLabel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.titleTextBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.categoryControl, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.51163F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.48837F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(342, 245);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 71F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(342, 263);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // categoryTextBox
-            // 
-            this.categoryTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.categoryTextBox.Location = new System.Drawing.Point(77, 201);
-            this.categoryTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
-            this.categoryTextBox.Name = "categoryTextBox";
-            this.categoryTextBox.Size = new System.Drawing.Size(235, 22);
-            this.categoryTextBox.TabIndex = 7;
-            this.categoryTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.categoryTextBox_Validating);
-            this.categoryTextBox.Validated += new System.EventHandler(this.categoryTextBox_Validated);
             // 
             // authorTextBox
             // 
             this.authorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.authorTextBox.Location = new System.Drawing.Point(77, 77);
+            this.authorTextBox.Location = new System.Drawing.Point(77, 59);
             this.authorTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.authorTextBox.Name = "authorTextBox";
             this.authorTextBox.Size = new System.Drawing.Size(235, 22);
@@ -94,7 +85,7 @@
             // 
             this.titleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.titleLabel.AutoSize = true;
-            this.titleLabel.Location = new System.Drawing.Point(3, 19);
+            this.titleLabel.Location = new System.Drawing.Point(3, 14);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(68, 17);
             this.titleLabel.TabIndex = 0;
@@ -105,7 +96,7 @@
             // 
             this.authorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.authorLabel.AutoSize = true;
-            this.authorLabel.Location = new System.Drawing.Point(3, 80);
+            this.authorLabel.Location = new System.Drawing.Point(3, 62);
             this.authorLabel.Name = "authorLabel";
             this.authorLabel.Size = new System.Drawing.Size(68, 17);
             this.authorLabel.TabIndex = 1;
@@ -116,7 +107,7 @@
             // 
             this.dateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(3, 142);
+            this.dateLabel.Location = new System.Drawing.Point(3, 123);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(68, 17);
             this.dateLabel.TabIndex = 2;
@@ -127,7 +118,7 @@
             // 
             this.categoryLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.categoryLabel.AutoSize = true;
-            this.categoryLabel.Location = new System.Drawing.Point(3, 204);
+            this.categoryLabel.Location = new System.Drawing.Point(3, 206);
             this.categoryLabel.Name = "categoryLabel";
             this.categoryLabel.Size = new System.Drawing.Size(68, 17);
             this.categoryLabel.TabIndex = 3;
@@ -137,7 +128,7 @@
             // titleTextBox
             // 
             this.titleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.titleTextBox.Location = new System.Drawing.Point(77, 17);
+            this.titleTextBox.Location = new System.Drawing.Point(77, 11);
             this.titleTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(235, 22);
@@ -148,7 +139,7 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker.Location = new System.Drawing.Point(77, 139);
+            this.dateTimePicker.Location = new System.Drawing.Point(77, 120);
             this.dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(235, 22);
@@ -158,6 +149,7 @@
             // 
             // CancelButton1
             // 
+            this.CancelButton1.CausesValidation = false;
             this.CancelButton1.Location = new System.Drawing.Point(184, 283);
             this.CancelButton1.Name = "CancelButton1";
             this.CancelButton1.Size = new System.Drawing.Size(88, 35);
@@ -180,6 +172,16 @@
             // 
             this.errorHandler.ContainerControl = this;
             // 
+            // categoryControl
+            // 
+            this.categoryControl.Image = ((System.Drawing.Image)(resources.GetObject("categoryControl.Image")));
+            this.categoryControl.InitialImage = null;
+            this.categoryControl.Location = new System.Drawing.Point(77, 170);
+            this.categoryControl.Name = "categoryControl";
+            this.categoryControl.Size = new System.Drawing.Size(235, 88);
+            this.categoryControl.TabIndex = 9;
+            this.categoryControl.TabStop = false;
+            // 
             // BookDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -193,6 +195,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorHandler)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -207,9 +210,9 @@
         private System.Windows.Forms.Button CancelButton1;
         private System.Windows.Forms.Button OKButton;
         public System.Windows.Forms.DateTimePicker dateTimePicker;
-        public System.Windows.Forms.TextBox categoryTextBox;
         public System.Windows.Forms.TextBox authorTextBox;
         public System.Windows.Forms.TextBox titleTextBox;
         private System.Windows.Forms.ErrorProvider errorHandler;
+        public CategoryControl categoryControl;
     }
 }

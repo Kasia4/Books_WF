@@ -83,6 +83,9 @@
     <EmbeddedResource Include="BookDetails.resx">
       <DependentUpon>BookDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CategoryControl.resx">
+      <DependentUpon>CategoryControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImagesRes.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ImagesRes.Designer.cs</LastGenOutput>
@@ -119,10 +122,10 @@
     <None Include="images\crime.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\fairytales.jpg" />
+    <None Include="images\fairytale.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\romance.jpg" />
+    <None Include="images\romance.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

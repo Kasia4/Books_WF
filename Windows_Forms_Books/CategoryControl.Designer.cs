@@ -28,7 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryControl));
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // CategoryControl
+            // 
+            this.Image = ((System.Drawing.Image)(resources.GetObject("$this.Image")));
+            this.InitialImage = ((System.Drawing.Image)(resources.GetObject("$this.InitialImage")));
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

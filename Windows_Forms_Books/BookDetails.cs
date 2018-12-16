@@ -21,7 +21,7 @@ namespace Windows_Forms_Books
             this.titleTextBox.Text = title;
             this.authorTextBox.Text = author;
             this.dateTimePicker.Value = date;
-            this.categoryTextBox.Text = category;
+            this.categoryControl.SetCurrentCategory(category);
         }
 
         public void SetBookDetails(Book book)
@@ -29,7 +29,7 @@ namespace Windows_Forms_Books
             this.titleTextBox.Text = book.Title;
             this.authorTextBox.Text = book.Author;
             this.dateTimePicker.Value = book.Date;
-            this.categoryTextBox.Text = book.Category;
+            this.categoryControl.SetCurrentCategory(book.Category);
         }
 
         private void OKButton_Click(object sender, EventArgs e)
@@ -48,10 +48,6 @@ namespace Windows_Forms_Books
             validateTextBox(titleTextBox, e);
         }
 
-        private void categoryTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            validateTextBox(categoryTextBox, e);
-        }
 
         private void dateTimePicker_Validating(object sender, CancelEventArgs e)
         {
@@ -96,9 +92,9 @@ namespace Windows_Forms_Books
             resetError(dateTimePicker);
         }
 
-        private void categoryTextBox_Validated(object sender, EventArgs e)
+        private void categoryControl_Click(object sender, EventArgs e)
         {
-            resetError(categoryTextBox);
+
         }
     }
 }

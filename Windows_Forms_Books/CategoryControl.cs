@@ -21,7 +21,7 @@ namespace Windows_Forms_Books
         private Category currentCategory;
         private static Image[] images = {
             ImagesRes.crime,
-            ImagesRes.fairytales,
+            ImagesRes.fairytale,
             ImagesRes.romance
         };
 
@@ -39,10 +39,11 @@ namespace Windows_Forms_Books
         }
         public CategoryControl(Category category)
         {
+            
+            InitializeComponent();
             this.Size = new Size(50, 50);
             this.CurrentCategory = category;
             this.Click += CategoryControlClicked;
-            InitializeComponent();
         }
 
         public CategoryControl() : this(Category.crime) {}
@@ -52,7 +53,7 @@ namespace Windows_Forms_Books
             this.CurrentCategory = (Category)((uint)(this.currentCategory + 1) % 3);
         }
 
-        public string GetCurrentCategoryStr()
+        public String GetCurrentCategoryStr()
         {
             return currentCategory.ToString();
         }
@@ -67,9 +68,9 @@ namespace Windows_Forms_Books
 
         }
 
-        protected override void OnPaint(PaintEventArgs pe)
-        {
-            base.OnPaint(pe);
-        }
+        //protected override void OnPaint(PaintEventArgs pe)
+        //{
+        //    base.OnPaint(pe);
+        //}
     }
 }

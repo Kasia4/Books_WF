@@ -73,9 +73,9 @@ namespace Windows_Forms_Books {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fairytales {
+        internal static System.Drawing.Bitmap fairytale {
             get {
-                object obj = ResourceManager.GetObject("fairytales", resourceCulture);
+                object obj = ResourceManager.GetObject("fairytale", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

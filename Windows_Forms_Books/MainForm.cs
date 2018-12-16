@@ -56,7 +56,7 @@ namespace Windows_Forms_Books
             BookDetails form = new BookDetails();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                books.Add(form.titleTextBox.Text, form.authorTextBox.Text, form.dateTimePicker.Value, form.categoryTextBox.Text);
+                books.Add(form.titleTextBox.Text, form.authorTextBox.Text, form.dateTimePicker.Value, form.categoryControl.GetCurrentCategoryStr());
             }
         }
 
@@ -66,7 +66,7 @@ namespace Windows_Forms_Books
             form.SetBookDetails(book);
             if (form.ShowDialog() == DialogResult.OK)
             {
-                book.SetProperties(form.titleTextBox.Text, form.authorTextBox.Text, form.dateTimePicker.Value, form.categoryTextBox.Text);
+                book.SetProperties(form.titleTextBox.Text, form.authorTextBox.Text, form.dateTimePicker.Value, form.categoryControl.GetCurrentCategoryStr());
                 books.Edit(book);
             }
         }
