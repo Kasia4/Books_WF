@@ -15,6 +15,14 @@ namespace Windows_Forms_Books
         public BookDetails()
         {
             InitializeComponent();
+            setupCategoryTextBox();
+        }
+        
+        private void setupCategoryTextBox()
+        {
+            this.categoryControl.CategoryChanged += categoryChanged;
+            this.categoryText.Text = categoryControl.GetCurrentCategoryStr();
+
         }
         public void SetBookDetails(String title, String author, DateTime date, String category)
         {
@@ -92,9 +100,9 @@ namespace Windows_Forms_Books
             resetError(dateTimePicker);
         }
 
-        private void categoryControl_Click(object sender, EventArgs e)
+        private void categoryChanged(object sender, EventArgs e)
         {
-
+            this.categoryText.Text = this.categoryControl.GetCurrentCategoryStr();
         }
     }
 }

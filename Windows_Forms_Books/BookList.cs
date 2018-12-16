@@ -19,7 +19,7 @@ namespace Windows_Forms_Books
         public BookList()
         {
             bookList = new List<Book>();
-            Add("1984", "George Orwell", new DateTime(1949, 6, 8), "fantasy");
+            Add("The Moonstone", "Wilkie Collins", new DateTime(1868, 1, 1), "crime");
         }
 
         public IEnumerator<Book> GetEnumerator()

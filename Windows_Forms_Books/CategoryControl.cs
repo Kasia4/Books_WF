@@ -18,6 +18,17 @@ namespace Windows_Forms_Books
     };
     public partial class CategoryControl : PictureBox
     {
+        public event EventHandler CategoryChanged;
+
+        protected virtual void OnCategoryChanged()
+        {
+            EventHandler handler = CategoryChanged;
+            if (handler != null)
+            {
+                handler(this, null);
+            }
+        }
+
         private Category currentCategory;
         private static Image[] images = {
             ImagesRes.crime,
@@ -43,6 +54,7 @@ namespace Windows_Forms_Books
             InitializeComponent();
             this.Size = new Size(50, 50);
             this.CurrentCategory = category;
+            OnCategoryChanged();
             this.Click += CategoryControlClicked;
         }
 
@@ -51,6 +63,7 @@ namespace Windows_Forms_Books
         private void CategoryControlClicked(object sender, EventArgs e)
         {
             this.CurrentCategory = (Category)((uint)(this.currentCategory + 1) % 3);
+            OnCategoryChanged();
         }
 
         public String GetCurrentCategoryStr()
@@ -64,6 +77,7 @@ namespace Windows_Forms_Books
             if (Enum.TryParse<Category>(category, out currCategory))
             {
                 this.CurrentCategory = currCategory;
+                OnCategoryChanged();
             }
 
         }
