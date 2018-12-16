@@ -132,10 +132,6 @@ namespace Windows_Forms_Books
 
         private void ViewForm_Load(object sender, EventArgs e)
         {
-           // foreach(Book book in books)
-           // {
-            //    AddBookViewItem(book);
-            //}
         }
 
         private void listViewForm_Enter(object sender, EventArgs e)

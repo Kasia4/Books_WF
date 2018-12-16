@@ -82,9 +82,5 @@ namespace Windows_Forms_Books
 
         }
 
-        //protected override void OnPaint(PaintEventArgs pe)
-        //{
-        //    base.OnPaint(pe);
-        //}
     }
 }
