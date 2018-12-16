@@ -63,7 +63,7 @@ namespace Windows_Forms_Books
         public void EditBook(Book book)
         {
             BookDetails form = new BookDetails();
-            form.SetBookDetails(book.Title, book.Author, book.Date, book.Category);
+            form.SetBookDetails(book);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 book.SetProperties(form.titleTextBox.Text, form.authorTextBox.Text, form.dateTimePicker.Value, form.categoryTextBox.Text);

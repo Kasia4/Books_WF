@@ -54,6 +54,17 @@
       <DependentUpon>BookDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="BookList.cs" />
+    <Compile Include="CategoryControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CategoryControl.Designer.cs">
+      <DependentUpon>CategoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImagesRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImagesRes.resx</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +81,10 @@
     </Compile>
     <EmbeddedResource Include="BookDetails.resx">
       <DependentUpon>BookDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImagesRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImagesRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -98,6 +113,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\crime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\fairytales.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\romance.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

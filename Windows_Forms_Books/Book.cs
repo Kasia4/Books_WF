@@ -26,6 +26,7 @@ namespace Windows_Forms_Books
             this.category = category;
         }
 
+
         public String Title
         {
             get { return title; }

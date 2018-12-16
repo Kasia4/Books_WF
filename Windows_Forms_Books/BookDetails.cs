@@ -24,6 +24,14 @@ namespace Windows_Forms_Books
             this.categoryTextBox.Text = category;
         }
 
+        public void SetBookDetails(Book book)
+        {
+            this.titleTextBox.Text = book.Title;
+            this.authorTextBox.Text = book.Author;
+            this.dateTimePicker.Value = book.Date;
+            this.categoryTextBox.Text = book.Category;
+        }
+
         private void OKButton_Click(object sender, EventArgs e)
         {
             if (ValidateChildren())

@@ -72,8 +72,9 @@
             // 
             this.categoryTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.categoryTextBox.Location = new System.Drawing.Point(77, 201);
+            this.categoryTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.categoryTextBox.Name = "categoryTextBox";
-            this.categoryTextBox.Size = new System.Drawing.Size(262, 22);
+            this.categoryTextBox.Size = new System.Drawing.Size(235, 22);
             this.categoryTextBox.TabIndex = 7;
             this.categoryTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.categoryTextBox_Validating);
             this.categoryTextBox.Validated += new System.EventHandler(this.categoryTextBox_Validated);
@@ -82,8 +83,9 @@
             // 
             this.authorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.authorTextBox.Location = new System.Drawing.Point(77, 77);
+            this.authorTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.authorTextBox.Name = "authorTextBox";
-            this.authorTextBox.Size = new System.Drawing.Size(262, 22);
+            this.authorTextBox.Size = new System.Drawing.Size(235, 22);
             this.authorTextBox.TabIndex = 5;
             this.authorTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.authorTextBox_Validating);
             this.authorTextBox.Validated += new System.EventHandler(this.authorTextBox_Validated);
@@ -136,8 +138,9 @@
             // 
             this.titleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.titleTextBox.Location = new System.Drawing.Point(77, 17);
+            this.titleTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(262, 22);
+            this.titleTextBox.Size = new System.Drawing.Size(235, 22);
             this.titleTextBox.TabIndex = 4;
             this.titleTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.titleTextBox_Validating);
             this.titleTextBox.Validated += new System.EventHandler(this.titleTextBox_Validated);
@@ -146,8 +149,9 @@
             // 
             this.dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker.Location = new System.Drawing.Point(77, 139);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(262, 22);
+            this.dateTimePicker.Size = new System.Drawing.Size(235, 22);
             this.dateTimePicker.TabIndex = 8;
             this.dateTimePicker.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimePicker_Validating);
             this.dateTimePicker.Validated += new System.EventHandler(this.dateTimePicker_Validated);
@@ -180,7 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 366);
+            this.ClientSize = new System.Drawing.Size(377, 366);
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.CancelButton1);
             this.Controls.Add(this.tableLayoutPanel1);
