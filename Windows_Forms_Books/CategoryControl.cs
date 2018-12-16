@@ -26,6 +26,7 @@ namespace Windows_Forms_Books
         };
 
         [Category("Category")]
+        [Editor(typeof(CategoryEditor), typeof(System.Drawing.Design.UITypeEditor))]
         [Browsable(true)]
         public Category CurrentCategory
         {

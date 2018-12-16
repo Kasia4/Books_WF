@@ -60,6 +60,7 @@
     <Compile Include="CategoryControl.Designer.cs">
       <DependentUpon>CategoryControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CategoryEditor.cs" />
     <Compile Include="ImagesRes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
